@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'home#static'
+  get '/find', to: 'home#index'
+  post '/find', to: 'home#find'
+  get '/update', to: 'home#update'
 end
