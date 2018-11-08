@@ -1,20 +1,16 @@
 class HomeController < ApplicationController
 
-	def static
-	end
-
-  def index
+  def search
   	@all_currencies = CryptoCurrency.all
   end
 
-  def find
-  	@all_currencies = CryptoCurrency.all
+  def result
   	@currency = CryptoCurrency.find(params[:format].to_i)
   end
 
   def update
   	ScrapperCrypto.new.perform
-  	redirect_to (request.referer)
+  	redirect_to find_path
   end
 
 end
